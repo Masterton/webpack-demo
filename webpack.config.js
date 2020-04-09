@@ -4,7 +4,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        index: './src/index.js',
+        polyfills: './src/polyfills.js'
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
