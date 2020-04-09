@@ -8,9 +8,12 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HTMLWebpackPlugin({
-            title: 'Caching'
+            title: 'shimming'
         }),
         new webpack.HashedModuleIdsPlugin(),
+        new webpack.ProvidePlugin({
+            _: 'lodash'
+        })
     ],
     output: {
         filename: '[name].[chunkhash].js',
