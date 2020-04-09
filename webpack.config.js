@@ -19,9 +19,12 @@ module.exports = {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist')
     },
-    optimization: {
-        splitChunks: {
-            chunks: 'all'
-        }
+    module: {
+        rules: [
+            {
+                test: require.resolve('./src/index.js'),
+                use: 'imports-loader?this=>window'
+            }
+        ]
     }
 };
